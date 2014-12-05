@@ -21,10 +21,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.googlecode.flyway.core.Flyway;
 
 @Configuration
-@Profile("prod")
 @EnableTransactionManagement
 @ComponentScan("com.home.passstore")
-@PropertySource("classpath:/com/home/passstore/resources/application.properties")
+@PropertySource("classpath:application.properties")
 public class RootConfig {
 
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";  

@@ -20,10 +20,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.googlecode.flyway.core.Flyway;
 
 @Configuration
-@Profile("test")
 @EnableTransactionManagement
 @ComponentScan("com.home.passstore.test")
-@PropertySource("classpath:/com/home/passstore/test/resources/test.properties")
+@PropertySource("classpath:test.properties")
 public class RootConfigTest {
 
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";  

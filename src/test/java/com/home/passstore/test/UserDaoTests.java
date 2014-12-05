@@ -24,7 +24,6 @@ import com.home.passstore.test.config.InitializerTest;
 import com.home.passstore.test.config.RootConfigTest;
 import com.home.passstore.test.config.WebappConfigTest;
 
-@ActiveProfiles("test")
 @ContextHierarchy({
 	@ContextConfiguration(classes = InitializerTest.class),
 	@ContextConfiguration(classes = RootConfigTest.class),

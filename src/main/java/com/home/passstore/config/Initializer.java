@@ -7,7 +7,6 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println("***** HERE! *****");
 		return new Class<?>[] {RootConfig.class};
 	}
 
