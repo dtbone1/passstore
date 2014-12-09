@@ -14,22 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
 import com.home.passstore.dao.User;
 import com.home.passstore.dao.UserDao;
-import com.home.passstore.test.config.InitializerTest;
-import com.home.passstore.test.config.RootConfigTest;
-import com.home.passstore.test.config.WebappConfigTest;
 
-@ContextHierarchy({
-	@ContextConfiguration(classes = InitializerTest.class),
-	@ContextConfiguration(classes = RootConfigTest.class),
-	@ContextConfiguration(classes = WebappConfigTest.class)
-})
-@WebAppConfiguration
+@ActiveProfiles("dev")
+@ContextConfiguration(locations = {
+		"classpath:com/home/passstore/config/dao-context.xml",
+		"classpath:com/home/passstore/config/security-context.xml",
+		"classpath:com/home/passstore/test/config/datasource.xml", })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserDaoTests {
 	
