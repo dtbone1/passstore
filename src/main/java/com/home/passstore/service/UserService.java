@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.home.passstore.dao.User;
 import com.home.passstore.dao.UserDao;
 
@@ -18,7 +19,7 @@ public class UserService {
 		userDao.create(user);
 	}
 	
-	public List<User> getAllUsers(){
+	public List<Object[]> getAllUsers(){
 		return userDao.getAllUsers();
 	}
 	
@@ -28,5 +29,9 @@ public class UserService {
 	
 	public void saveOrUpdateUser(User user){
 		userDao.saveOrUpdateUser(user);
+	}
+
+	public void throwTestException() {
+		userDao.getUser("bilbobaggins@caveoftrolls.com");
 	}
 }

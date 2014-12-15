@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import com.home.passstore.dao.User;
 import com.home.passstore.dao.UserDao;
 
@@ -32,10 +33,10 @@ public class UserDaoTests {
 	@Autowired
 	private DataSource dataSource;
 	
-	private User user1 = new User("john@caveofprogramming.com","John", "Purcell","hellothere",1);
-	private User user2 = new User("richard@caveofprogramming.com","Richard","Hannay","the39steps",1);
-	private User user3 = new User("sue@caveofprogramming.com","Sue", "Black","iloveviolins",2);
-	private User user4 = new User("rog@caveofprogramming.com","Rog", "Blake","liberator",2);
+	private User user1 = new User("john@caveofprogramming.com","John", "Purcell","hellothere",true,1);
+	private User user2 = new User("richard@caveofprogramming.com","Richard","Hannay","the39steps",true,1);
+	private User user3 = new User("sue@caveofprogramming.com","Sue", "Black","iloveviolins",false,2);
+	private User user4 = new User("rog@caveofprogramming.com","Rog", "Blake","liberator",true,2);
 	
 	@Before
 	public void init(){
@@ -46,16 +47,16 @@ public class UserDaoTests {
 	@Test
 	public void testCreateRetrieve(){
 		userDao.create(user1);
-		List<User> users1 = userDao.getAllUsers();
+		List<Object[]> users1 = userDao.getAllUsers();
 		assertEquals("One user should have been created and retrieved.", 1, users1.size());
-		
-		assertEquals("Inserted user should match retrieved",user1,users1.get(0));
+		Object[] firstUser = users1.get(0);
+		assertEquals("Inserted user should match retrieved",user1,firstUser[0]);
 		
 		userDao.create(user2);
 		userDao.create(user3);
 		userDao.create(user4);
 		
-		List<User> users2 = userDao.getAllUsers();
+		List<Object[]> users2 = userDao.getAllUsers();
 		
 		assertEquals("Should be four retrieved users.",4,users2.size());
 	}

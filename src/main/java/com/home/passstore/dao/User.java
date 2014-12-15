@@ -22,6 +22,8 @@ public class User implements Serializable{
 	private String lastname;
 	@Column(name="password")
 	private String password;
+	@Column(name="enabled")
+	private boolean enabled;
 	@Column(name="roleid")
 	private int roleid;
 	
@@ -30,11 +32,20 @@ public class User implements Serializable{
 	}
 	
 	public User(String email, String firstname, String lastname,
-			String password, int roleid) {
+			String password, boolean enabled, int roleid) {
 		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.password = password;
+		this.enabled = enabled;
+		this.roleid = roleid;
+	}
+	
+	public User(String email, String firstname, String lastname, boolean enabled, int roleid) {
+		this.email = email;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.enabled = enabled;
 		this.roleid = roleid;
 	}
 
@@ -56,8 +67,17 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getPassword() {
+		return password;
+	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	public int getRoleid() {
 		return roleid;
@@ -71,6 +91,7 @@ public class User implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + (enabled ? 1231 : 1237);
 		result = prime * result
 				+ ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result
@@ -93,6 +114,8 @@ public class User implements Serializable{
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (enabled != other.enabled)
+			return false;
 		if (firstname == null) {
 			if (other.firstname != null)
 				return false;
@@ -110,8 +133,11 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [email=" + email + "firstname=" + firstname
-				+ ", lastname=" + lastname + ",  roleid=" + roleid + "]";
+		return "User [email=" + email + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", enabled=" + enabled
+				+ ", roleid=" + roleid + "]";
 	}
+
+	
 
 }
