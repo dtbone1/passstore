@@ -13,17 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-@Component("rolesDao")
-public class RolesDao {
-	
+@Component("store_TypeDao")
+public class Store_TypeDao {
+
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public RolesDao(){
+	public Store_TypeDao(){
 		
 	}
 	
-	public RolesDao(SessionFactory sessionFactory) {
+	public Store_TypeDao(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
@@ -32,23 +32,23 @@ public class RolesDao {
 	}
 	
 	@Transactional
-	public void createRole(Roles role){
-		session().save(role);
+	public void createStore_Type(Store_Type store_type){
+		session().save(store_type);
 	}
 	
-	public void saveOrUpdateRole(Roles role){
-		session().saveOrUpdate(role);
+	public void saveOrUpdateStore_Type(Store_Type store_type){
+		session().saveOrUpdate(store_type);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Roles> getAllRoles(){
-		return session().createQuery("from Roles").list();
+	public List<Store_Type> getAllStore_Types(){
+		return session().createQuery("from Store_Type").list();
 	}
 	
-	public Roles getRole(int id) {
-		Criteria criteria = session().createCriteria(Roles.class);
+	public Store_Type getStoreType(int id) {
+		Criteria criteria = session().createCriteria(Store_Type.class);
 		criteria.add(Restrictions.idEq(id));
-		Roles role = (Roles)criteria.uniqueResult();
-		return role;
+		Store_Type store_type = (Store_Type)criteria.uniqueResult();
+		return store_type;
 	}
 }
