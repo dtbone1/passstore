@@ -46,8 +46,18 @@
 	border: 1px solid black;
 }
 
-.center {
+.centerUsers {
 	width: 600px;
+	margin: 0 auto;
+}
+
+.centerLogin {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.centerKeychains {
+	width: 900px;
 	margin: 0 auto;
 }
 

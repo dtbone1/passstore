@@ -47,7 +47,7 @@ public class KeychainDao {
 		 .addEntity("k", Keychain.class)
 		 .addEntity("s", Store_Type.class);
 		List<Object[]> rows = q.list();
-		
+		System.out.println("***** LIST OF KEYCHAINS: " + rows);
 		return rows;
 	}
 	

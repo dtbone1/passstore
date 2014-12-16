@@ -13,7 +13,7 @@
 	<p class="error">Login failed. Check that your Email Address and Password are correct.</p>
 </c:if>
 </div>
-<div class="center">
+<div class="centerLogin">
 	
 	<form name='f'
 		action='${pageContext.request.contextPath}/j_spring_security_check' method='POST'>

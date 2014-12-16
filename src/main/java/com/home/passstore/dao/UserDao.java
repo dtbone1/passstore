@@ -56,7 +56,7 @@ public class UserDao {
 		 .addEntity("u", User.class)
 		 .addEntity("r", Roles.class);
 		List<Object[]> rows = q.list();
-		
+		System.out.println("***** LIST OF USERS: " + rows);
 		return rows;
 	}
 	

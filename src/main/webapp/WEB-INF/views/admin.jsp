@@ -6,7 +6,7 @@
 <div class="centerText">
 <h2>Administrator Web Portal</h2>
 </div>
-<div class="center">
+<div class="centerUsers">
 	<div class="CSS_Table_Example" style="width:600px;height:150px;">
 	<table>
 		<tr>
