@@ -29,5 +29,13 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("/admin")
+	public String admin(Model model, Principal principal){
+		userService.throwTestException();
+		List<Object[]> temp = userService.getAllUsers();
+		model.addAttribute("users", temp);
+		return "admin";
+	}
+	
 
 }

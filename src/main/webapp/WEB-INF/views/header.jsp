@@ -12,3 +12,7 @@
 <sec:authorize access="isAuthenticated()">
 	<a class="login" href="<c:url value='/j_spring_security_logout'/>">Log out</a>
 </sec:authorize>
+
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+	<a class="admin" href="<c:url value='/admin'/>">Admin Portal</a>
+</sec:authorize>
