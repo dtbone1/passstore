@@ -32,6 +32,12 @@
 		<put-attribute name="toolbar" value="/WEB-INF/views/toolbar.jsp"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/views/admin.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="admin" extends="passstore.base">
+		<put-attribute name="title" value="Admin Web Portal"></put-attribute>
+		<put-attribute name="toolbar" value="/WEB-INF/views/toolbar.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/admin.jsp"></put-attribute>
+	</definition>
 
 	<definition name="login" extends="passstore.base">
 		<put-attribute name="title" value="Login"></put-attribute>

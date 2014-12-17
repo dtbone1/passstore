@@ -69,6 +69,25 @@
 	text-align: center;
 }
 
+.centerUsers {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.centerLogin {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.centerKeychains {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.centerText {
+	text-align: center;
+}
+
 input[type=text] {
 	width: 250px;
 }
