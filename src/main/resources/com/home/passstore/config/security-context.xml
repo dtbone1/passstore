@@ -15,11 +15,14 @@
 	</security:authentication-manager>
 	
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/fancytree/**" access="=permitAll" />
 		<security:intercept-url pattern="/content" access="permitAll" />
 		<security:intercept-url pattern="/footer" access="permitAll" />
 		<security:intercept-url pattern="/header" access="permitAll" />
 		<security:intercept-url pattern="/toolbar" access="permitAll" />
 		<security:intercept-url pattern="/" access="isAuthenticated()" />
+		<security:intercept-url pattern="/menu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/loggedout" access="permitAll" />
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
@@ -29,7 +32,7 @@
 		<security:intercept-url pattern="/**" access="denyAll" />
 		
 		<security:form-login login-page="/login" authentication-failure-url="/login?error=true" />
-		<security:logout logout-success-url="/loggedout" />
+		<security:logout invalidate-session="true" logout-success-url="/loggedout" />
 		<security:access-denied-handler error-page="/denied" />
 		<security:remember-me key="offersAppKey" user-service-ref="jdbcUserService" />
 		

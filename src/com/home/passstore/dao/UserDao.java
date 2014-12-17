@@ -52,18 +52,11 @@ public class UserDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<Object[]> getAllUsers(){
-		//List<User> users = session().createQuery("select new User(U.email,U.firstname,U.lastname,U.roleid) from User U").list();
-		//System.out.println("*** Retrieved Users:" + users.toString());
-		//return users;
 		SQLQuery q = session().createSQLQuery("SELECT {u.*}, {r.*}  FROM User u, Roles r WHERE u.roleid = r.roleid")
 		 .addEntity("u", User.class)
 		 .addEntity("r", Roles.class);
 		List<Object[]> rows = q.list();
-		/* Debug Lines */
-//	    for (Object[] row : rows) {
-//	        System.out.println("***** " + row[0] + " " + row[1] + " *****");
-//	    }
-		
+		System.out.println("***** LIST OF USERS: " + rows);
 		return rows;
 	}
 	

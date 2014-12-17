@@ -9,14 +9,28 @@
 		<put-attribute name="toolbar" value=""></put-attribute>
 		<put-attribute name="title" value="PassStore Homepage"></put-attribute>
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp"></put-attribute>
+		<put-attribute name="menu" value=""></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/views/content.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
+		<put-list-attribute name="cssList" cascade="true">
+            <add-attribute value="main.css" />
+        </put-list-attribute>
 	</definition>
 
 	<definition name="home" extends="passstore.base">
 		<put-attribute name="title" value="PassStore Homepage"></put-attribute>
 		<put-attribute name="toolbar" value="/WEB-INF/views/toolbar.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/views/home.jsp"></put-attribute>
+		<put-list-attribute name="cssList" cascade="true" inherit="true">
+            <add-attribute value="menu.css" />
+        </put-list-attribute>
+	</definition>
+	
+	<definition name="admin" extends="passstore.base">
+		<put-attribute name="title" value="Admin Web Portal"></put-attribute>
+		<put-attribute name="toolbar" value="/WEB-INF/views/toolbar.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/admin.jsp"></put-attribute>
 	</definition>
 
 	<definition name="login" extends="passstore.base">

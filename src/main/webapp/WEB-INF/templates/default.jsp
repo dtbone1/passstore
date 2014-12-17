@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="${pageContext.request.contextPath}/resources/css/main.css"
-	rel="stylesheet" type="text/css" />
+<tiles:useAttribute id="list" name="cssList" classname="java.util.List"/>  
+<c:forEach var="cssItem" items="${list}"> 
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/${cssItem}" />
+</c:forEach>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,19 +20,26 @@
 
 </head>
 <body>
-	<div class="header">
-		<tiles:insertAttribute name="header"></tiles:insertAttribute>
-	</div>
-	<div class="toolbar">
-		<tiles:insertAttribute name="toolbar"></tiles:insertAttribute>
-	</div>
-	<hr />
-	<div class="content">
-		<tiles:insertAttribute name="content"></tiles:insertAttribute>
-	</div>
-	<hr />
-	<div class="footer">
-		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
-	</div>
+	<table class="centerPage">
+		<tr>
+			<td class="header" colspan="2"><tiles:insertAttribute name="header" /></td>
+		</tr>
+		<tr>
+			<td class="toolbar" colspan="2"><tiles:insertAttribute name="toolbar" /></td>
+		</tr>
+		<tr>
+			<td class="footer" colspan="2"><hr/></td>
+		</tr>
+		<tr>
+			<td class="menu"><tiles:insertAttribute name="menu" /></td>
+			<td class="content"><tiles:insertAttribute name="content" /></td>
+		</tr>
+		<tr>
+			<td class="footer" colspan="2"><hr/></td>
+		</tr>
+		<tr>
+			<td class="footer" colspan="2"><tiles:insertAttribute name="footer" /></td>
+		</tr>
+	</table>
 </body>
 </html>

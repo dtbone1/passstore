@@ -31,7 +31,4 @@ public class UserService {
 		userDao.saveOrUpdateUser(user);
 	}
 
-	public void throwTestException() {
-		userDao.getUser("bilbobaggins@caveoftrolls.com");
-	}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.home.passstore.service.KeychainService;
 import com.home.passstore.service.UserService;
 
 
@@ -19,14 +20,23 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private KeychainService keychainService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/")
 	public String home(Model model, Principal principal){
-		userService.throwTestException();
-		List<Object[]> temp = userService.getAllUsers();
-		model.addAttribute("users", temp);
+		List<Object[]> keychains = keychainService.getAllKeyChainsForUser(principal.getName());
+		model.addAttribute("keychains", keychains);
 		return "home";
+	}
+	
+	@RequestMapping("/admin")
+	public String admin(Model model, Principal principal){
+		List<Object[]> users = userService.getAllUsers();
+		model.addAttribute("users", users);
+		return "admin";
 	}
 	
 

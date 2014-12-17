@@ -1,1 +1,10 @@
-/target/
+target/
+.idea/
+*.iml
+*.iws
+.project
+.classpath
+.settings/
+.springBeans
+.DS_Store
+log/
