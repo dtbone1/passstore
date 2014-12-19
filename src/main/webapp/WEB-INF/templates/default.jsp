@@ -13,7 +13,9 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/jquery-ui.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:insertAttribute name="title"></tiles:insertAttribute></title>
 
 <tiles:insertAttribute name="includes"></tiles:insertAttribute>

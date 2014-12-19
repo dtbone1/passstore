@@ -1,7 +1,15 @@
 @CHARSET "US-ASCII";
 
 .menu {
-	min-width: 150px;
+	min-width: 350px;
 	padding: 10px;
 	border: 1px solid gray;
+	position: relative;
+}
+
+.menuContainer {
+	position:absolute;
+	top:0px;
+	left:10px;
+
 }
